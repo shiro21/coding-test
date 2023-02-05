@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+// function solution(s) {
+//     var answer = 0;
+//     let sol = "";
+//     let cnt1 = 0;
+//     let cnt2 = 0;
+    
+//     for (let i = 0; i < s.length; i++) {
+//         // 첫번째 문자열을 비교하기 위해 첫번째 문자열을 sol에 추가해줍니다.
+//         if (sol === "") sol = s[i];
+        
+//         // 만약에 첫번째 들어온 문자와 s[i]번째 들어온 문자가 같으면 cnt1에 1추가, 다르면 cnt2에 1을 추가합니다.
+//         if (sol === s[i]) cnt1++;
+//         else if (sol !== s[i]) cnt2++;
+        
+//         // cnt1과 cnt2가 같으면 answer에 1을 추가하고, 나머지를 초기화합니다.
+//         if (cnt1 === cnt2) {
+//             answer++;
+//             cnt1 = 0;
+//             cnt2 = 0;
+//             sol = "";
+//         }
+//     }
+    
+//     // 2번은은 마지막에 a가 혼자 남으면서 cnt1과 cnt2가 같은 상황으로 끝나지 않았기 때문에 초기화되지 않은 sol이 있다면 answer를 추가해줍니다.
+//     if (sol) answer++;
+    
+//     return answer;
+// }
+
+function solution(s) {
+    var answer = 0;
+    let letter = "";
+    let cnt1 = 0;
+    let cnt2 = 0;
+    
+    for (let i = 0; i < s.length; i++) {
+        if (letter === "") letter = s[i];
+        
+        if (letter === s[i]) cnt1++;
+        else cnt2++;
+        
+        if (cnt1 === cnt2) {
+            answer++;
+            letter = "";
+            cnt1 = 0;
+            cnt2 = 0;
+        }
+    }
+    if (cnt1 !== 0 || cnt2 !== 0) answer++;
+    
+    return answer;
+}
+
+console.log(solution("banana")); // 3
+console.log(solution("abracadabra")); // 6
+console.log(solution("aaabbaccccabba")); // 3
+
+  </script>
+</body>
+</html>

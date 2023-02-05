@@ -1,0 +1,56 @@
+<!-- Array 중복제거하기 -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    const array = [1,2,3,3,3,4,5,5,5,5,6,7,7,8,9,0,10,11,10,10,11];
+
+    function solution (s) {
+      // Set() ES6문법 | 중복을 허용하지 않는다. ( 필터링 해줌 )
+      const newArray = [...new Set(s)];
+      console.log(newArray);
+
+      // indexOf와 filter를 사용한 방법
+      const newArray2 = s.filter((item, position) => {
+        // console.log("---------");
+        // console.log(s.indexOf(item));
+        // console.log(position);
+        /*
+          position 0
+          indexOf 0
+          result 1
+
+          indexOf는 처음 발견된 index를 리턴을 하게됩니다. 그렇게 때문에 array[3]에 있는 3은 indexOf는 array[2]에 있는 3을 가리키고, position은 그대로인 array[3]에 있는 3을 가리키게 됩니다.
+        */
+        return s.indexOf(item) === position;
+      });
+
+      console.log(newArray2);
+
+      // caching / frequency map을 사용한 방법 ( Loop을 통해 미리 지정된 caching Object에 존재 여부를 확인)
+      const newObject = {};
+      const newArray3 = [];
+
+      for (let element of s) {
+        // Object에 엘리멘트가 존재하지 않으면 newArray3에 추가시켜줍니다.
+        if (!newObject[element]) {
+          newArray3.push(element);
+        }
+        newObject[element] = element;
+        console.log(newObject)
+      }
+
+      console.log(newArray3);
+    }
+
+    solution(array);
+  </script>
+</body>
+</html>

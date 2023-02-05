@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>연속된 수의 합</h1>
+  <script>
+    function solution(num, total) {
+        var answer = [];
+        let newNum = 0;
+        let arr = new Array(num).fill(0).map((a, i) => i).reduce((b, j, k) => b + j, 0);
+        console.log(arr);
+
+        while(total !== arr) {
+          if (total > arr) newNum++;
+          else newNum--;
+
+          arr = new Array(num).fill(0).map((a, i) => i + newNum).reduce((b, j) => b + j, 0);
+          console.log("NEW ", arr);
+        }
+
+        answer = new Array(num).fill(0).map((a, i) => i + newNum);
+        console.log(answer)
+        return answer;
+    }
+
+    solution(3, 12);
+    solution(5, 15);
+    solution(4, 14);
+    solution(5, 5);
+  </script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // function solution(t, p) {
+    //     var answer = 0;
+        
+    //     let arr = [];
+
+    //     for (let i = 0; i < t.length; i++) {
+    //         let newArray = t;
+    //         if (newArray.slice(i, p.length + i).length !== p.length) break;
+    //         arr.push(newArray.slice(i, p.length + i));
+    //     }
+        
+    //     for (let i = 0; i < arr.length; i ++) {
+    //         if (Number(arr[i]) <= p) answer++;
+    //     }
+    //     return answer;
+    // }
+
+    function solution(t, p) {
+        var answer = 0;
+        
+        let arr = [];
+        for (let i = 0; i < t.length; i++) {
+            let newArray = t;
+            
+            if (newArray.slice(i, p.length + i).length === p.length) {
+                if (Number(newArray.slice(i, p.length + i)) <= p) answer++;
+            }
+        }
+        return answer;
+    }
+
+    console.log(solution("3141592", "271")); // 2
+    console.log(solution("500220839878", "7")); // 8
+    console.log(solution("10203", "15")); // 3
+  </script>
+</body>
+</html>

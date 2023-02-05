@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // function solution(my_str, n) {
+    //     var answer = [];
+        
+    //     let arr = my_str.split("");
+    //     // let arr = my_str;
+    //     let test = [];
+        
+    //     for (let i = 0; i < arr.length; i++) {
+    //         test.push(arr[i]);
+    //         if (i === n - 1) {
+    //             n = n * 2;
+    //             answer.push(test.join(""));
+                
+    //             test = [];
+    //         }
+    //         if (i === arr.length - 1) answer.push(test.join(""));
+    //     }
+
+    //     return answer;
+    // }
+
+    function solution(my_str, n) {
+        var answer = [];
+        let arr = my_str.split("");
+
+        for(const ele of arr) {
+          answer.push(arr.splice(0, n).join(""));
+        }
+        return answer;
+    }
+
+    console.log(solution("abc1Addfggg4556b", 6)); // ['abc1Ad', 'dfggg4', '556b']
+    console.log(solution("abcdef123", 3)); // ['abc', 'def', '123']
+  </script>
+</body>
+</html>

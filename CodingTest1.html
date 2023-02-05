@@ -1,0 +1,84 @@
+<!-- 등차수열 | 등비수열 -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>다음에 올 숫자</h1>
+  <script>
+    function solution(common) {
+        var answer = 0;
+
+        const sequence = common[1] - common[0] === common[2] - common[1];
+
+        if(sequence) {
+            return common[common.length - 1] + common[1] - common[0]
+        } else {
+            return common[common.length - 1] * (common[1] / common[0])
+        }
+
+        return answer;
+    }
+
+    console.log(solution([1, 2, 3, 4]));
+    console.log(solution([2, 4, 8]));
+
+  </script>
+</body>
+</html>
+
+<!-- first -->
+
+<!-- 
+let cnt1 = 1;
+let cnt2 = 2;
+for (let i = 0; i < common.length; i++) {
+    if (cnt1 === common[i]) {
+        cnt1++;
+        if (cnt1 !== common[i + 1]) {
+          return answer = cnt1;
+        }
+        continue;
+    }
+    
+    if (cnt2 === common[i]) {
+        cnt2 = 2 * cnt2
+        if (cnt2 !== common[i + 1]) {
+          return answer = cnt2;
+        }
+        continue;
+    }
+}
+-->
+
+
+<!-- second -->
+<!-- 2 - 1 === 3 - 2 = 등차수열
+2 * 2 === 4 = 등비수열 
+const cnt1 = common[1] - common[0] === common[2] - common[1];
+const cnt2 = common[0] * common[0] === common[1];
+
+if (cnt1) {
+    return console.log(common[common.length-1] + common[1]-common[0]);
+}
+if (cnt2) {
+    return console.log(common[common.length-1] * (common[1]/common[0]));
+} -->
+
+<!-- 이것만 정답이네 ? ? ? ? -->
+<!--
+  function solution(common) {
+    // 등차수열인지 확인
+    const sameMinus = common[1]-common[0] === common[2]-common[1]
+    if(sameMinus) {
+        return common[common.length-1]+common[1]-common[0]
+    } else {
+        return common[common.length-1]*(common[1]/common[0])
+    }
+  }
+-->

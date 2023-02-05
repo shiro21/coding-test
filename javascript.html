@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <form onclick="alert('form')">
+    <div onclick="alert('div')">
+      <div onclick="event.stopPropagation()">
+        <p onclick="alert('p')">
+          p -> stop
+        </p>
+      </div>
+    </div>
+  </form>
+  <script>
+    
+    let arr = ["안녕", "하세요", "저는", "Shiro21", "입니다."];
+
+    let a = arr.join();
+    let b = arr.join(", ");
+    let c = arr.join(" + ");
+    let d = arr.join("");
+    
+    console.log(a); // 안녕,하세요,저는,Shiro21,입니다.
+    console.log(b); // 안녕, 하세요, 저는, Shiro21, 입니다.
+    console.log(c); // 안녕 + 하세요 + 저는 + Shiro21 + 입니다.
+    console.log(d); // 안녕하세요저는Shiro21입니다.
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // function solution(n) {
+    //     var answer = 0;
+        
+    //     let arr = n.toString().split("");
+        
+    //     for (let i = 0; i < arr.length; i++) {
+    //         answer = answer + Number(arr[i])
+    //     }
+    //     return answer;
+    // }
+
+    // console.log(solution(1234)); // 10
+    // console.log(solution(930211)); // 16
+
+    let arr = [4, 6, 8, 12];
+    let arr1 = [4, 6, 7, 22];
+
+    const isPrime = (ele, index, array) => {
+      let start = 2;
+
+      while (start <= Math.sqrt(ele)) {
+        if (ele % start++ < 1) {
+
+          return false;
+        }
+      }
+      return ele > 1;
+    }
+
+    console.log(arr.findIndex(isPrime)); // -1
+    console.log(arr1.findIndex(isPrime)); // 2
+  </script>
+</body>
+</html>
