@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function solution(a, b) {
+        var answer = '';
+        
+        let date = new Date(`2016, ${a}, ${b}`).getDay();
+        console.log(date)
+        
+        const week = ["SUN","MON","TUE","WED","THU","FRI","SAT"]
+        const dayOfWeek = week[date];
+        
+        return answer = dayOfWeek;
+    }
+
+// function solution(a, b) {
+//     // 윤년은 2월이 29일까지 있고, 1년은 정확히는 365.2422일이라고 합니다.
+//     // 4, 100, 400으로 나누어지는 년도는 윤년입니다.
+//     const weekToDay = ['SUN','MON','TUE','WED','THU','FRI','SAT'];
+//     const leapYearMonths = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]; 
+//     let day = b + 4; // 1월 1일은 FRI, b가 1일 때 인덱스로는 5가 되어야합니다.
+//     // 1월은 이전 월의 일수를 더하지 않기 때문에, a-1 조건으로 해야합니다.
+//     for(let i = 0; i < a - 1; ++i){
+//         day += leapYearMonths[i];
+//     }
+//     return weekToDay[day % 7];
+// }
+    console.log(solution(5, 24));
+  </script>
+</body>
+</html>

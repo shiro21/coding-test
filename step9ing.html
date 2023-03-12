@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // function solution(n, lost, reserve) {
+    //     var answer = 0;
+        
+    //     let lost2 = lost.sort((a, b) => a - b);
+    //     let reserve2 = reserve.sort((a, b) => a - b);
+    //     let overlap = lost2.filter(item => reserve2.includes(item));
+    //     let test = [];
+        
+    //     // 체육복을 잃어버리고 여벌을 가지고 있는 학생들
+    //     for (let i = 0; i < overlap.length; i++) {
+    //       reserve2 = reserve2.filter(item => item !== overlap[i]);
+    //       lost2 = lost2.filter(item => item !== overlap[i]);
+    //     }
+
+    //     // 체육복을 잃어버리지 않은 학생들 + 체육복을 잃어버리고 여벌을 가지고 있는 학생들
+    //     answer = n - reserve2.concat(lost2).length;
+    //     console.log("1", answer)
+
+    //     for (let i = 0; i < lost2.length; i++) {
+    //       let UP = reserve2.filter(item => item - 1 === lost2[i]);
+    //       let DOWN = reserve2.filter(item => item + 1 === lost2[i]);
+
+    //       if (UP.length > 0) {
+    //         test.push(UP[0])
+    //       } else if (DOWN.length > 0) {
+    //         test.push(DOWN[0])
+    //       }
+    //     }
+
+    //     const set = new Set(test);
+    //     const arr = [...set]
+    //     console.log(arr)
+        
+    //     answer += arr.length;
+    //     return answer;
+    // }
+
+    function solution(n, lost, reserve) {
+        var answer = 0;
+        
+        let lost2 = lost.sort((a, b) => a - b);
+        let reserve2 = reserve.sort((a, b) => a - b);
+        let overlap = lost2.filter(item => reserve2.includes(item));
+        
+        // 여벌 체육복을 가지고 있는 학생들
+        answer += reserve.length;
+        console.log(answer)
+        
+        // 체육복을 잃어버리고 여벌을 가지고 있는 학생들
+        for (let i = 0; i < overlap.length; i++) {
+          reserve2 = reserve2.filter(item => item !== overlap[i]);
+          lost2 = lost2.filter(item => item !== overlap[i]);
+        }
+
+        // 체육복을 잃어버리지 않은 학생들 + 체육복을 잃어버리고 여벌을 가지고 있는 학생들
+        answer += n - reserve2.concat(lost2).length;
+        console.log(answer)
+
+        // 체육복을 잃어버린 학생들한테 체육복 빌려주기
+        for (let i = 0; i < lost2.length; i++) {
+            let res1 = reserve2.map(item => item !== lost2[i] - 1);
+            let res2 = reserve2.map(item => item !== lost2[i] + 1);
+            console.log(res1)
+            console.log(res2)
+            
+            if (res1) {
+              reserve2 = reserve2.filter(item => item !== lost2[i] - 1);
+              console.log("TT", reserve2)
+            } else if (res2) {
+              reserve2 = reserve2.filter(item => item !== lost2[i] + 1);
+              console.log("FF", reserve2)
+            }
+            
+
+            console.log("분기점", answer)
+            if (reserve2.length === 0) return answer;
+            answer++;
+            console.log(answer)
+            console.log(reserve2)
+        }
+        
+        return answer;
+    }
+
+    console.log(solution(10, [2, 4, 6, 7], [1, 5, 8]));
+  </script>
+</body>
+</html>
