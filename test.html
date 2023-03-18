@@ -8,32 +8,44 @@
 </head>
 <body>
   <script>
-    function solution(babbling) {
-        const canBab = ['aya', 'ye', 'woo', 'ma']
-        let result = 0
-        // 전체 문자 배열
-        for(let i = 0 ; i < babbling.length ; i ++) {
-            // 가능한 옹알이 배열
-            for(let j = 0 ; j < canBab.length ; j ++ ) {
-                // 발음해야 할 문자가 가능한 옹알이를 포함하는가?
-                if(babbling[i].includes(canBab[j])) {
-                    // 가능한 부분을 제거한 후 j--을 하여 전부 제거할 수 있는지 확인
-                    // 연속되지 않은 부분만
-                    if(babbling[i].slice(0,canBab[j].length) === babbling[i].slice(canBab[j].length,canBab[j].length*2)) break
-                    babbling[i] = babbling[i].replace(canBab[j],'')
-                    j--
-                }
-                // 전부 다 발음할 수 있다면
-                if(babbling[i].length === 0) {
-                    result++
-                    break
-                }
-            }
-        }
-        return result
-    }
 
-    console.log(solution(["aya", "yee", "u", "maa", "wyeoo"]))
+function solution(a, b) {
+  console.log([Array(Math.abs(a-b)+1)]);
+  [...Array(Math.abs(a-b)+1)].reduce((s, _, i) => console.log("S", s, "_", _, "i", i, "Min", Math.min(a,b)))
+
+    // return [...Array(Math.abs(a-b)+1)].reduce((s,_,i) => s+i+Math.min(a,b), 0);
+    return [...Array(Math.abs(a-b)+1)].reduce((s,_,i) => s+i+Math.min(a,b), 0);
+}
+
+console.log(solution(3, 5))
+console.log(solution(5, 3))
+
+    // function solution(babbling) {
+    //     const canBab = ['aya', 'ye', 'woo', 'ma']
+    //     let result = 0
+    //     // 전체 문자 배열
+    //     for(let i = 0 ; i < babbling.length ; i ++) {
+    //         // 가능한 옹알이 배열
+    //         for(let j = 0 ; j < canBab.length ; j ++ ) {
+    //             // 발음해야 할 문자가 가능한 옹알이를 포함하는가?
+    //             if(babbling[i].includes(canBab[j])) {
+    //                 // 가능한 부분을 제거한 후 j--을 하여 전부 제거할 수 있는지 확인
+    //                 // 연속되지 않은 부분만
+    //                 if(babbling[i].slice(0,canBab[j].length) === babbling[i].slice(canBab[j].length,canBab[j].length*2)) break
+    //                 babbling[i] = babbling[i].replace(canBab[j],'')
+    //                 j--
+    //             }
+    //             // 전부 다 발음할 수 있다면
+    //             if(babbling[i].length === 0) {
+    //                 result++
+    //                 break
+    //             }
+    //         }
+    //     }
+    //     return result
+    // }
+
+    // console.log(solution(["aya", "yee", "u", "maa", "wyeoo"]))
   </script>
 </body>
 </html>

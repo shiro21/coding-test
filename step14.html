@@ -1,0 +1,33 @@
+<!-- 두 정수 사이의 합 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>두 정수 사이의 합</title>
+</head>
+<body>
+  <script>
+    function solution(a, b) {
+        var answer = 0;
+        let arr = [a, b].sort((a, b) => a - b)
+        let count = 0;
+        
+        if (a === b) return answer = a;
+        
+        for (let i = arr[0]; i <= arr[1]; i++) {
+            answer += arr[0] + count;
+            
+            count++;
+        }
+        
+        return answer;
+    }
+
+    console.log(solution(3, 5)); // 12
+    console.log(solution(3, 3)); // 3
+    console.log(solution(5, 3)); // 12
+  </script>
+</body>
+</html>
