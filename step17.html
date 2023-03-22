@@ -1,0 +1,41 @@
+<!-- 문자열 내림차순으로 배치하기 -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>문자열 내림차순으로 배치하기</title>
+</head>
+<body>
+  <script>
+function solution(s) {
+  // 이게맞음
+  return s.split("").sort().reverse().join("");
+  // 숫자를 비교할 때 ( 이게 틀림 : 유니코드를 비교했어야 했는데 숫자비교를 넣어버림..)
+  // return s.split("").sort((a, b) => a - b).reverse().join("");
+
+  // 실수하는 바람에 아래코드까지 만들어버림..
+  var answer = '';
+  let arr = s.split("");
+  let arr1 = [];
+  let arr2 = [];
+  
+  for (let i = 0; i < arr.length; i++) {
+      if (arr[i].match(new RegExp(/^[A-Z]/)) === null) arr1.push(arr[i])
+      else arr2.push(arr[i])
+  }
+  
+  arr1 = arr1.sort().reverse().join("");
+  arr2 = arr2.sort().reverse().join("");
+  
+  answer = arr1 + arr2
+  
+  return answer;
+}
+
+console.log(solution("Zbcdefg")); // gfedcbZ
+  </script>
+</body>
+</html>
