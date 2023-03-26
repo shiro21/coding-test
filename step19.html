@@ -1,0 +1,25 @@
+<!-- 서울에서 김서방 찾기 -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>서울에서 김서방 찾기</title>
+</head>
+<body>
+  <script>
+function solution(seoul) {
+    var answer = '';
+    
+    for (let i = 0; i < seoul.length; i++) {
+        if (seoul[i] === "Kim") answer = `김서방은 ${i}에 있다`;
+    }
+    return answer;
+}
+
+console.log(solution(["Jane", "Kim"])); // 김서방은 1에 있다
+  </script>
+</body>
+</html>
