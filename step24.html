@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>자릿수 더하기</title>
+</head>
+<body>
+  <script>
+    function solution(n) {
+        var answer = 0;
+        
+        let arr = String(n).split("");
+        
+        for (let i = 0; i < arr.length; i++) {
+            answer += Number(arr[i])
+        }
+        
+        return answer;
+    }
+
+    console.log(solution(123)); // 6
+    console.log(solution(987)); // 24
+  </script>
+</body>
+</html>
