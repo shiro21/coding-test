@@ -1,0 +1,26 @@
+<!-- 정수 내림차순으로 배치하기 -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>정수 내림차순으로 배치하기</title>
+</head>
+<body>
+  <script>
+    function solution(n) {
+        var answer = 0;
+        
+        let arr = Number(String(n).split("").sort().reverse().join(""));
+        
+        answer = arr
+
+        return answer;
+    }
+
+    console.log(solution(118372)); // 873211
+  </script>
+</body>
+</html>
