@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>정수 제곱근 판별</title>
+</head>
+<body>
+  <script>
+    function solution(n) {
+        var answer = 0;
+        let x = Math.sqrt(n)
+        
+        if (Number.isInteger(x)) {
+            answer = (x + 1) * (x + 1)
+        } else {
+            answer = -1
+        }
+            
+        return answer;
+    }
+
+    console.log(solution(121)); // 144
+    console.log(solution(3)); // -1
+  </script>
+</body>
+</html>
